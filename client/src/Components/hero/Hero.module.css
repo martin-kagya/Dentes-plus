@@ -1,0 +1,30 @@
+.container{
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-direction: column;
+}
+
+h1{
+    text-transform: capitalize;
+    font-family: var(--Interfont);
+    font-size: 4rem;
+    background-image: var(--gradient);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+}
+
+.button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.img{
+    background-image: '/public/Dentist Project/caroline-lm-8BkF0sTC6Uo-unsplash.jpg';
+}
