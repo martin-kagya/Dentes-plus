@@ -7,6 +7,7 @@
     --Interfont: 'Inter', sans-serif;
     --Poppinsfont: 'Poppins', sans-serif;
     --buttonWidth: 8.567rem;
+    --fontsize: 1.5rem;
     --buttonHeight: 3.063rem;
     --inputWidth: 22.12rem;
     --inputHeight: 4rem;
@@ -17,7 +18,7 @@
     margin: 0;
   }
 body{
-    color: #FFFFFF;
+    color: black;
     margin-left: 5%;
     margin-right: 5%;
 }
