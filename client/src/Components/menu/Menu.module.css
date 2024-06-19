@@ -13,7 +13,7 @@
     position: absolute; /* Ensure it appears over other content */
     height: 100vh;
     overflow: hidden;
-    width: 90%;
+    width: 105%;
 }
 
 .menu li {

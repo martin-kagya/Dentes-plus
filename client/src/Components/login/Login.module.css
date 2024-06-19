@@ -1,4 +1,6 @@
 .container{
+    margin-left: 5%;
+    margin-right: 5%;
     height: 100vh;
     display: flex;
     width: 100%;

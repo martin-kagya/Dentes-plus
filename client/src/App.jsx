@@ -5,6 +5,7 @@ import About from './Components/about/About'
 import Login from './Components/login/Login'
 import Hamburger from './Components/hamburger/Hamburger'
 import './styles/global.css'
+import Procedure from './Components/procedure/Procedure'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         
         <Hero />
         <About />
+        <Procedure />
       </div>
     </>
   )

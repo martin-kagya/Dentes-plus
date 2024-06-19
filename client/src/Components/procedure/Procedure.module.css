@@ -1,0 +1,64 @@
+.container {
+    background-image: url("/Dentist Project/kamal-hoseinianzade-s5TU52ZjaFA-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 90vmax;
+    color: white;
+    display: flex;
+    width: 105%;
+    font-family: var(--Poppinsfont);
+    flex-direction: column;
+    align-items: center;
+    margin-top: 9rem;
+}
+
+
+.procedureItem {
+    list-style: none;
+    margin-bottom: 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+
+
+.procedureHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    border-radius: 5%;
+    background: var(--gradient);
+    height: 30rem;
+    color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.closeButton {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

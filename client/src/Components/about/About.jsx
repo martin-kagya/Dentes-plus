@@ -63,21 +63,7 @@ function About(){
                  With Dentes Plus, scheduling your next dentist visit is quick and effortless.
                  Browse through our network of trusted dentists, choose a convenient appointment slot,
                  and say hello to hassle-free dental care.
-                 Start booking your appointments with ease on <motion.span
-                    className={styles.Dentes}
-                    initial={{
-                        y: 100,
-                    }}
-                    whileInView={{
-                        y: 0,
-                        transition: {
-                            duration: 3
-                        }
-                    }}
-                    viewport={{once: false}}
-                 >
-                    Dentes Plus
-                 </motion.span> today!
+                 Start booking your appointments with ease on Dentes Plus today!
                 </p>
         </div>
     )

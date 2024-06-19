@@ -1,0 +1,52 @@
+.services{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.container{
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: var(--Ralewayfont);
+    padding-top: 3rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+}
+h2{
+    font-size: 2rem;
+    font-weight: 700;
+    
+
+}
+.para{
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+
+    padding-left: 1.5rem;    
+}
+.icon{
+    float: right;
+}
+.polaroid{
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.img{
+    border-radius: 5% 5% 0 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
