@@ -4,8 +4,10 @@ import Menu from './Components/menu/Menu'
 import About from './Components/about/About'
 import Login from './Components/login/Login'
 import Hamburger from './Components/hamburger/Hamburger'
+
 import './styles/global.css'
 import Procedure from './Components/procedure/Procedure'
+import {  Route, Routes } from 'react-router-dom'
 
 
 function App() {
@@ -22,8 +24,10 @@ function App() {
       </div>
       <Menu clicked={clicked}/>
       <div>
-        
-        <Hero />
+        <Routes>
+          <Route path='/' Component={Hero}/>
+          <Route path='/login' Component={Login}/>
+        </Routes>
         <About />
         <Procedure />
       </div>

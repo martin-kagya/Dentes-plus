@@ -1,6 +1,8 @@
 import React from "react";
 import styles from './Hero.module.css'
 import { useEffect } from "react";
+
+import { Link } from "react-router-dom";
 import { useRef } from "react";
 import Button from '../button/Button'
 
@@ -16,7 +18,7 @@ function Hero(){
             <img src="/Dentist Project/the-humble-co-cADflhZzgyo-unsplash.jpg" alt="toothbrush" />
             <div className={styles.button}>
                 <Button text="Sign up" />
-                <Button text="LOGIN" />
+                <Link to="/login"><Button text="LOGIN" /></Link>
             </div>
         </div>
     )
