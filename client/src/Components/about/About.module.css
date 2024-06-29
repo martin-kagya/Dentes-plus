@@ -7,7 +7,7 @@
 
 
 .container{
-    margin-left: 5%;
+    margin: 5%;
     margin-right: 5%;
     display: flex;
     position: relative;
@@ -44,4 +44,18 @@
     opacity: 1;
     transform: translateY(0);
   }
-  
+
+@media screen and (min-width: 768px){
+    .container{
+        margin-top: -4%;
+        display: flex;
+        gap: 10rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .image{
+        width: 20rem;
+    }
+    
+}

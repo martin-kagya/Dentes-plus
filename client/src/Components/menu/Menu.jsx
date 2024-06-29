@@ -33,6 +33,7 @@ const itemVariants = {
 
 function Menu({clicked}) {
  const items = ['home', 'about', 'login', 'contact', 'services'];
+ 
   return (
     <div>
       <motion.ul className={styles.menu}

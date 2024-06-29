@@ -33,38 +33,39 @@ function About(){
     return(
         <div className={styles.container}>
             <img ref={ref} className={styles.image} src="/Dentist Project/A3.png"></img>
-            <p className={styles.header}>
-               {text.map((el, index) => {
-                return(
-                    <motion.span
-                    className={styles.span}
-                    key={index}
-                    initial={{
-                        opacity: 0,
-                        x: -100,
-                    }}
-                    whileInView={{
-                        opacity: 1,
-                        x: 0,
-                        transition: {
-                            duration: 3
-                        }
-                    }}
-                    viewport={{once: false}}
-                    >
-                    {el}{' '}
-                    </motion.span>
-                )
-               })} 
-            </p>
-                
-                <p className={styles.paragraph}>
-                 Welcome to Dentes Plus, your go-to platform for booking dental appointments online.
-                 With Dentes Plus, scheduling your next dentist visit is quick and effortless.
-                 Browse through our network of trusted dentists, choose a convenient appointment slot,
-                 and say hello to hassle-free dental care.
-                 Start booking your appointments with ease on Dentes Plus today!
+            <div className={styles.aboutRes}>
+                <p className={styles.header}>
+                   {text.map((el, index) => {
+                    return(
+                        <motion.span
+                        className={styles.span}
+                        key={index}
+                        initial={{
+                            opacity: 0,
+                            x: -100,
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            x: 0,
+                            transition: {
+                                duration: 3
+                            }
+                        }}
+                        viewport={{once: false}}
+                        >
+                        {el}{' '}
+                        </motion.span>
+                    )
+                   })} 
                 </p>
+                    <p className={styles.paragraph}>
+                     Welcome to Dentes Plus, your go-to platform for booking dental appointments online.
+                     With Dentes Plus, scheduling your next dentist visit is quick and effortless.
+                     Browse through our network of trusted dentists, choose a convenient appointment slot,
+                     and say hello to hassle-free dental care.
+                     Start booking your appointments with ease on Dentes Plus today!
+                    </p>
+            </div>
         </div>
     )
 }
