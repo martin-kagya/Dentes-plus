@@ -12,40 +12,40 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
-class Dentist(models.Model):
-    dentist_id = models.AutoField(primary_key=True)
-    user_id=models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    specialization =models.CharField(max_length=100)
+# class Dentist(models.Model):
+#     dentist_id = models.AutoField(primary_key=True)
+#     user_id=models.ForeignKey(User, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=100)
+#     specialization =models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
     
-class Patient(models.Model):
-    patient_id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    phone_number = models.CharField( max_length=10, unique=True)
-    email= models.EmailField(max_length = 100)
-    address = models.CharField(max_length = 100)
-    birth_date = models.DateField()
-    occupation =models.CharField(max_length=100)
-    conditon = models.CharField(max_length=100)
+# class Patient(models.Model):
+#     patient_id = models.AutoField(primary_key=True)
+#     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=100)
+#     phone_number = models.CharField( max_length=10, unique=True)
+#     email= models.EmailField(max_length = 100)
+#     address = models.CharField(max_length = 100)
+#     birth_date = models.DateField()
+#     occupation =models.CharField(max_length=100)
+#     conditon = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
-class Appointment(models.Model):
-    appointment_id = models.AutoField(primary_key=True)
-    dentist_id = models.ForeignKey(Dentist, on_delete=models.CASCADE)
-    patient_id = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    accepted_appointment = models.BooleanField(default=False)
-    date = models.DateField()
-    time = models.TimeField()
+# class Appointment(models.Model):
+#     appointment_id = models.AutoField(primary_key=True)
+#     dentist_id = models.ForeignKey(Dentist, on_delete=models.CASCADE)
+#     patient_id = models.ForeignKey(Patient, on_delete=models.CASCADE)
+#     accepted_appointment = models.BooleanField(default=False)
+#     date = models.DateField()
+#     time = models.TimeField()
 
-    def __str__(self) -> str:
-        return self.patient_id.name + " - " + self.dentist_id.name
+#     def __str__(self) -> str:
+#         return self.patient_id.name + " - " + self.dentist_id.name
     
 
 class ShopInventory(models.Model):
