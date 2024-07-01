@@ -21,7 +21,7 @@ class UserSerializer(serializers.ModelSerializer):
 #         model=Appointment
 #         fields ='__all__'
 
-class ShopInventorySerializer(serializers.ModelSerializer):
-    class Meta:
-        model=ShopInventory
-        fields ='__all__'
+# class ShopInventorySerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=ShopInventory
+#         fields ='__all__'
