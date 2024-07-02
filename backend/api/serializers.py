@@ -6,20 +6,20 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
-class DentistSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Dentist
-        fields ='__all__'
+# class DentistSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=Dentist
+#         fields ='__all__'
 
-class PatientSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Patient
-        fields ='__all__'
+# class PatientSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=Patient
+#         fields ='__all__'
 
-class AppointmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Appointment
-        fields ='__all__'
+# class AppointmentSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=Appointment
+#         fields ='__all__'
 
 class ShopInventorySerializer(serializers.ModelSerializer):
     class Meta:

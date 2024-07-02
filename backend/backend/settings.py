@@ -49,7 +49,11 @@ INSTALLED_APPS = [
     
     #my Apps 
     'api',
-    'account'
+    'account',
+    'dentist',
+    'patient',
+    'appointment',
+    'shop'
 ]
 
 
