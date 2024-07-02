@@ -1,0 +1,16 @@
+
+.buttons{
+    background: var(--gradient);
+    width: var(--buttonWidth);
+    height: var(--buttonHeight);
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: var(--Interfont);
+    border-radius: 20px;
+}
+.buttons:hover{
+    transform: scale(1.1);
+}
