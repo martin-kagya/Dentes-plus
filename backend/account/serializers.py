@@ -1,6 +1,9 @@
 from .models import Account
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
+from rest_framework.authtoken.models import Token
+from rest_framework import status
+from rest_framework.exceptions import ValidationError
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,7 +14,7 @@ class AccountSerializer(serializers.ModelSerializer):
         }
 
     def create(self, validated_data):
-        user = Account.objects.create(
+        user = Account.objects.create_user(
             username=validated_data['username'],
             email=validated_data['email'],
             password=make_password(validated_data['password'])
@@ -44,3 +47,48 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("Must include 'username' and 'password'")
         data['user'] = user
         return data
+    
+
+class UserLoginSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(read_only=True)
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = Account
+        fields = ['username', 'password']
+
+class UserRegisterSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(read_only=True)
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = Account
+        fields = ['username', 'password', 'email']
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
+
+    def validate_username(self,username):
+        if Account.objects.filter(username=username).exists():
+            detail = {
+                "detail": "Username already exists!"
+            }
+            raise ValidationError(detail=detail)
+        return username
+    
+    def validate(self,instance):
+        if Account.objects.filter(email=instance['email']).exists():
+            detail = {
+                "detail": "Email already exists!"
+            }
+            raise ValidationError(detail=detail)
+        return instance
+    
+    def create(self, validated_data):
+        password = validated_data['password']
+        user = Account.objects.create(**validated_data)
+        user.set_password(password)
+        user.save()
+        Token.objects.create(user=user)
+        return user
