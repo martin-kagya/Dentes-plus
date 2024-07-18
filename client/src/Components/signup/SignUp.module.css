@@ -5,7 +5,7 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    gap: 5rem;
+    gap: 2rem;
     flex-direction: column;
 }
 form{
@@ -69,7 +69,7 @@ input{
     
     .logo{
         margin-top: 0;
-        width: 75%;
+        width: 50%;
     }
     .form{
         margin-top: 0;

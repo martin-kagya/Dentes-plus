@@ -1,12 +1,14 @@
 .services{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: grid; 
+    grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
+    padding: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+    
 }
 
 .container{
-    margin-left: 5%;
-    margin-right: 5%;
     font-family: var(--Ralewayfont);
     padding-top: 3rem;
     width: 100%;
@@ -19,16 +21,13 @@
 
 }
 h2{
-    font-size: 2rem;
+    font-size: 4rem;
     font-weight: 700;
-    
-
 }
 .para{
     font-size: 1.2rem;
     font-weight: 500;
     display: block;
-
     padding-left: 1.5rem;    
 }
 .icon{
@@ -49,4 +48,12 @@ h2{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@media screen and (min-width: 768px){
+    .services{
+        gap: 2rem;
+        height: 30rem;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

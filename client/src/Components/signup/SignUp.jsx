@@ -2,38 +2,42 @@ import React, { useState, useRef } from "react";
 import { PiEye, PiEyeClosed } from "react-icons/pi";
 import axios from 'axios'
 import logo from "/images/undraw_medicine_b-1-ol.svg";
-import styles from "./Login.module.css";
+import styles from "./SignUp.module.css";
 import Button from "../button/Button";
 
-export default function Login() {
-  const [username, setUsername] = useState("");
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.withCredentials = true;
+
+
+export default function SignUp() {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState("")
   const passwordRef = useRef();
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   function handleEmailChange(e) {
-    const newUsername = e.target.value;
-    setUsername(newUsername);
+    const newEmail = e.target.value;
+    setEmail(newEmail);
   }
 
   function handleSubmit(e){
-    e.preventDefault()
-    axios.post("http://127.0.0.1:8000/account/login/", {
+    e.preventDefault();
+    axios.post("http://127.0.0.1:8000/account/register/", {
+      email: email,
       username: username,
       password: password
-    },
-    {
-      withCredentials: true,
-    }
-  )
-    
-    .then((response) => {
-      console.log(response)
-    })
+    }, {
+    headers: {
+    'X-CSRFToken': window.CSRF_TOKEN,
   }
-
+    })
+    .then((response) => console.log(response))
+    .catch((error) => console.log(error))
+  }
 
   function togglePasswordVisibility() {
     setShowPassword((prevState) => !prevState);
@@ -52,10 +56,19 @@ export default function Login() {
             <input
               type="text"
               required
-              value={username}
+              value={email}
               onChange={handleEmailChange}
-            /><label>USERNAME</label>
+            /><label>EMAIL</label>
             <p style={{color: 'red'}}>{emailError}</p>
+        </div>
+        <div className={styles.userBox}>
+            <input
+                type="text"
+                required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+            />
+            <label>USERNAME</label>
         </div>
         <div className={styles.userBox}>
           <input
@@ -70,7 +83,7 @@ export default function Login() {
             {showPassword ? <PiEye /> : <PiEyeClosed />}
           </span>
         </div>
-        <Button text="Login" />
+        <Button text="Sign Up" />
       </form>
     </div>
   );
