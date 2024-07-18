@@ -1,0 +1,88 @@
+.container{
+    margin-right: 5%;
+    height: 60vh;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+form{
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    margin-top: 90%;
+    width: 65%;
+}
+input{
+    border: none;
+}
+.userBox{
+    position: relative;
+}
+
+.userBox input{
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 2px solid;
+  border-color: var(--gradient);
+  outline: none;
+  background: transparent;
+}
+
+.eyelid{
+    position: absolute;
+    top: 30%;
+    right: 25px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+.userBox label {
+    font-family: var(--Ralewayfont);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+.userBox input:focus ~ label,
+.userBox input:valid ~ label {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #333;
+}
+
+@media screen and (min-width: 768px){
+    
+    .logo{
+        margin-top: 0;
+        width: 50%;
+    }
+    .form{
+        margin-top: 0;
+    }
+
+    .container{
+        position: absolute;
+        display: flex;
+        height: 24rem;
+        justify-content: center;
+        align-items: center;
+        top: 25%;
+        width: 50%;
+        right: 25%;
+    }
+}

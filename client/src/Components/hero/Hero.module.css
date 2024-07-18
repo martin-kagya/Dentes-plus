@@ -1,9 +1,7 @@
 .container{
-    margin-left: 5%;
-    margin-right: 5%;
+    
     height: 100vh;
     display: flex;
-    width: 100%;
     justify-content: center;
     gap: 1.5rem;
     flex-direction: column;
@@ -36,6 +34,59 @@ h1{
     justify-content: center;
     gap: 2rem;
 }
-.img{
-    background-image: '/public/Dentist Project/caroline-lm-8BkF0sTC6Uo-unsplash.jpg';
+.heroPara{
+    display: none;
+}
+.flex-item{
+    width: 100%;
+
+}
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+}
+
+@media screen and (min-width: 768px) {
+    .container{
+        display: revert;
+        margin-top: 5rem;
+        
+    }
+    .heroPara{
+        font-family: var(--Ralewayfont);
+        font-size: 1.5rem;
+        display: block;
+        width: 24rem;
+    }
+    p{
+        display: block;
+    }
+    
+    .container{
+        margin-right: 10%;
+        margin-left: 10%;
+
+    }
+    .button{
+        width: 24rem;
+        justify-content: flex-start;
+    }
+    .flexItem{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+    h1{
+        font-size: 4.5rem;
+        width: 24rem;
+        margin: 0;
+    }
+    .responsive{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        align-items: center;
+    }
 }

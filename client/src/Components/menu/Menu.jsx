@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from './Menu.module.css';
+import { Link } from 'react-scroll';
 import { motion } from "framer-motion";
 
 const variants = {
@@ -32,7 +33,29 @@ const itemVariants = {
 
 
 function Menu({clicked}) {
- const items = ['home', 'about', 'login', 'contact', 'services'];
+ const items = [
+  {
+    name: 'home',
+    location: '/',
+    id: 1
+  },
+  {
+    name: 'contact',
+    location: 'contact',
+    id: 2
+  },
+  {
+    name: 'services',
+    location: 'services',
+    id: 3
+  },
+  {
+    name: 'about',
+    location: 'about',
+    id: 4
+  }
+ ]
+ 
   return (
     <div>
       <motion.ul className={styles.menu}
@@ -48,7 +71,7 @@ function Menu({clicked}) {
             
             whileTap={{ scale: 0.95 }}
           >
-            {item}
+            <Link to={item.location} smooth={true} duration={200} offset={-50}>{item.name} </Link>
           </motion.li>
         ))}
       </motion.ul>
