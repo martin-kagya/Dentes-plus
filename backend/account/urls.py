@@ -1,6 +1,8 @@
 from django.urls import path, include
 from .views import *
 
+
+# urls for account app
 urlpatterns = [
     path('signup/', signup.as_view(), name='signup'),
     path('login/', login.as_view(), name='login'),

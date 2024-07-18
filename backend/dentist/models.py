@@ -1,6 +1,8 @@
 from django.db import models
 # from django.contrib.auth.models import User
-# Create your models here.
+
+
+# dentist model
 class Dentist(models.Model):
     dentist_id = models.AutoField(primary_key=True)
     # user_id=models.ForeignKey(User, on_delete=models.CASCADE)

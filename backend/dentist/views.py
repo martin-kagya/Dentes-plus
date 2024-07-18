@@ -24,10 +24,13 @@ from .serializers import DentistSerializer
 #     def get(self, request, *args, **kwargs):
 #         return self.retrieve(request, *args, **kwargs)
 
+
+# a concrete class to get or post the list of dentists
 class DentistList(generics.ListCreateAPIView):
     queryset = Dentist.objects.all()
     serializer_class = DentistSerializer
 
+# a concrete class to get, update or delete a dentist
 class DentistDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Dentist.objects.all()
     serializer_class = DentistSerializer

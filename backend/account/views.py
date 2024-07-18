@@ -1,7 +1,4 @@
 from django.shortcuts import render
-
-# Create your views here.
-from django.shortcuts import render
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from rest_framework.response import Response
@@ -15,6 +12,7 @@ from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
+# an API view to signup a user
 class signup(APIView):
     def post(self, request):
         serializer = UserSerializer(data=request.data)
@@ -34,6 +32,7 @@ class signup(APIView):
             return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+# an API view to login a user
 class login(APIView):
     def post(self, request):
         data = request.data
@@ -52,6 +51,8 @@ class login(APIView):
             return Response(response_data)
         return Response({"message": "not found"}, status=status.HTTP_404_NOT_FOUND)
 
+
+# an API view to logout a user
 class logout(APIView):
     @authentication_classes([TokenAuthentication,SessionAuthentication])
     @permission_classes([IsAuthenticated])
@@ -60,14 +61,8 @@ class logout(APIView):
         # logout(request)
         return Response({"message": "logout was successful"}, status=status.HTTP_200_OK )
 
-# class test(APIView):
-#     @authentication_classes([SessionAuthentication,TokenAuthentication])
-#     @permission_classes([IsAuthenticated])
-#     def get(self, request):
 
-#         return Response({"message": "signup page"})
-
-
+# an API view to logout a user
 @api_view(["GET"])
 @authentication_classes([SessionAuthentication, TokenAuthentication])
 @permission_classes([IsAuthenticated])
