@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
+    'shop'
 
 ]
 
@@ -87,9 +88,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dentes-plus2',
         'USER' : 'postgres',
-        'PASSWORD' : '7777', # runny: 20982270 , iddriss: 12345 
+        'PASSWORD' : '12345', # runny: 20982270 , iddriss: 12345 
         'HOST' : 'localhost',
-        'PORT' : '5433',
+        'PORT' : '5432',
     }
 }
 
