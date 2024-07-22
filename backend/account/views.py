@@ -10,6 +10,7 @@ from rest_framework.decorators import authentication_classes,permission_classes,
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 
+
 # Create your views here.
 
 # an API view to signup a user
@@ -34,6 +35,8 @@ class signup(APIView):
 
 # an API view to login a user
 class login(APIView):
+    # authentication_classes = [TokenAuthentication,SessionAuthentication]
+    # permission_classes = [IsAuthenticated]
     def post(self, request):
         data = request.data
         authenticated_user = authenticate(username=data['username'],password=data['password'])
@@ -53,13 +56,13 @@ class login(APIView):
 
 
 # an API view to logout a user
-class logout(APIView):
-    @authentication_classes([TokenAuthentication,SessionAuthentication])
-    @permission_classes([IsAuthenticated])
-    def get(self, request):
-        request.user.auth_token.delete()
-        # logout(request)
-        return Response({"message": "logout was successful"}, status=status.HTTP_200_OK )
+# class logout(APIView):
+#     @authentication_classes([TokenAuthentication,SessionAuthentication])
+#     @permission_classes([IsAuthenticated])
+#     def get(self, request):
+#         request.user.auth_token.delete()
+#         # logout(request)
+#         return Response({"message": "logout was successful"}, status=status.HTTP_200_OK )
 
 
 # an API view to logout a user
