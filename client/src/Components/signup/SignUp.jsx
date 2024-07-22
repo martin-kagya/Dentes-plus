@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { PiEye, PiEyeClosed } from "react-icons/pi";
 import axios from 'axios'
+import { Navigate, useNavigate } from 'react-router-dom'
 import logo from "/images/undraw_medicine_b-1-ol.svg";
 import styles from "./SignUp.module.css";
 import Button from "../button/Button";
@@ -11,6 +12,7 @@ axios.defaults.withCredentials = true;
 
 
 export default function SignUp() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -26,16 +28,18 @@ export default function SignUp() {
 
   function handleSubmit(e){
     e.preventDefault();
-    axios.post("http://127.0.0.1:8000/account/register/", {
+    axios.post("http://127.0.0.1:8000/account/signup/", {
       email: email,
       username: username,
       password: password
-    }, {
-    headers: {
-    'X-CSRFToken': window.CSRF_TOKEN,
-  }
-    })
-    .then((response) => console.log(response))
+    },
+  {
+    withCredentials: true
+  })
+    .then((response) => {console.log(response)
+      navigate('/login')
+    }
+  )
     .catch((error) => console.log(error))
   }
 

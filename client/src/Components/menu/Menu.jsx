@@ -53,6 +53,11 @@ function Menu({clicked}) {
     name: 'about',
     location: 'about',
     id: 4
+  },
+  {
+    name:'cart',
+    location: 'cart',
+    id: 5
   }
  ]
  
@@ -71,7 +76,9 @@ function Menu({clicked}) {
             
             whileTap={{ scale: 0.95 }}
           >
-            <Link to={item.location} smooth={true} duration={200} offset={-50}>{item.name} </Link>
+            <Link to={item.location} smooth={true} duration={200} offset={-50}>
+              {item.name}
+            </Link>
           </motion.li>
         ))}
       </motion.ul>
