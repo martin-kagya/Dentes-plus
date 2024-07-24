@@ -5,14 +5,28 @@ import  candidpack  from '/shop/candid-33AM1lbWadc-unsplash.jpg'
 import invisalign from '/shop/candid-FDuefSgoO8E-unsplash.jpg'
 import listerine from '/shop/mishaal-zahed-KDJ1TbLDoOo-unsplash.jpg'
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import Button from '../button/Button'
-import  drugs  from '/shop/the-tonik-5Lbyao5bzbc-unsplash.jpg'
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import {motion} from 'framer-motion'
 import { useEffect, useState } from "react"
 
 function Shop(){
     const [cartAdd, setCartAdd] = useState(0)
     const [total, setTotal] = useState(0)
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
+
     function AddToCart(price){
         setCartAdd(cartAdd + 1)
         setTotal(prevTotal => prevTotal + price)
@@ -71,7 +85,48 @@ function Shop(){
                 <div className={styles.subcontainer}>
                     <p className={styles.header}>DENTES+</p>
                     <div className={styles.cartContainer}>
-                        <HiOutlineShoppingBag size={25} className={styles.cartIcon}/>
+                        <>
+                            <Button variant="outlined" onClick={handleClickOpen}>
+                                <HiOutlineShoppingBag size={25} className={styles.cartIcon}/>
+                            </Button>
+                            <Dialog
+                              open={open}
+                              onClose={handleClose}
+                              PaperProps={{
+                                component: 'form',
+                                onSubmit: (event) => {
+                                  event.preventDefault();
+                                  const formData = new FormData(event.currentTarget);
+                                  const formJson = Object.fromEntries(formData.entries());
+                                  const email = formJson.email;
+                                  console.log(email);
+                                  handleClose();
+                                },
+                              }}
+                            >
+                            <DialogTitle>CHECKOUT</DialogTitle>
+                            <DialogContent>
+                              <DialogContentText>
+                                Proceed to Checkout
+                              </DialogContentText>
+                              <TextField
+                                autoFocus
+                                required
+                                margin="dense"
+                                id="name"
+                                name="email"
+                                label="Email Address"
+                                type="email"
+                                fullWidth
+                                variant="standard"
+                              />
+                            </DialogContent>
+                            <DialogActions>
+                              <Button onClick={handleClose}>CANCEL</Button>
+                              <Button type="submit">CHECKOUT</Button>
+                            </DialogActions>
+                        </Dialog>
+                        </>
                         {cartAdd > 0 && <span className={styles.badge}>{cartAdd}</span>}
                     </div>
                 </div>

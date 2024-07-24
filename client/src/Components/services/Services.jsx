@@ -23,13 +23,13 @@ function Services() {
         id: 1,
         name: 'EXTRACTION',
         img: '/images/caroline-lm-8BkF0sTC6Uo-unsplash.jpg',
-        location: '/'
+        location: 'login'
     },
     {
         id: 2,
         name: 'IMPLANTS',
         img: '/images/nhia-moua-jQYofLnS0TI-unsplash.jpg',
-        location: '/'
+        location: 'login'
     },
     {
         id: 3,
@@ -37,13 +37,18 @@ function Services() {
         img: '/images/candid-WFsNCIn8OF4-unsplash.jpg',
         location: 'shop'
     
+    },
+    {
+        id: 4,
+        name: 'Book Appointment',
+        img: '/images/shedrack-salami-GKMQtxRe_Kg-unsplash.jpg',
+        location: 'appointment'
     }
 ]
 
 const servicesList = services.map(service => 
-    <>
-        <Link to={service.location}>
-            <motion.li key={service.id} className={styles.polaroid}
+        <Link to={service.location} key={service.id}>
+            <motion.li className={styles.polaroid}
                 variants={fadeIn}
                 initial='initial'
                 whileInView='animate'
@@ -56,7 +61,6 @@ const servicesList = services.map(service =>
                 <p className={styles.para}>{service.name} <span className={styles.icon}><IoMdArrowForward size={30}/></span></p>
             </motion.li>
         </Link>
-    </>
 )
     return (
         <div className={styles.container} id="services">
