@@ -9,6 +9,8 @@ from django.contrib.auth import authenticate, logout
 from rest_framework.decorators import authentication_classes,permission_classes,api_view
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import status,generics,mixins
+
 
 # Create your views here.
 
@@ -34,6 +36,8 @@ class signup(APIView):
 
 # an API view to login a user
 class login(APIView):
+    # authentication_classes = [TokenAuthentication,SessionAuthentication]
+    # permission_classes = [IsAuthenticated]
     def post(self, request):
         data = request.data
         authenticated_user = authenticate(username=data['username'],password=data['password'])
@@ -53,13 +57,13 @@ class login(APIView):
 
 
 # an API view to logout a user
-class logout(APIView):
-    @authentication_classes([TokenAuthentication,SessionAuthentication])
-    @permission_classes([IsAuthenticated])
-    def get(self, request):
-        request.user.auth_token.delete()
-        # logout(request)
-        return Response({"message": "logout was successful"}, status=status.HTTP_200_OK )
+# class logout(APIView):
+#     @authentication_classes([TokenAuthentication,SessionAuthentication])
+#     @permission_classes([IsAuthenticated])
+#     def get(self, request):
+#         request.user.auth_token.delete()
+#         # logout(request)
+#         return Response({"message": "logout was successful"}, status=status.HTTP_200_OK )
 
 
 # an API view to logout a user
@@ -71,3 +75,15 @@ def logout(request):
     request.user.auth_token.delete()
 
     return Response({"message": "logout was successful"})
+
+
+# an API view to get all users
+class UserList(generics.ListCreateAPIView):
+    # permission_classes = [IsAuthenticated]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    # permission_classes = [IsAuthenticated]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

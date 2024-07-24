@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
+    'shop',
+    'appoint'
 
 ]
 
@@ -87,9 +89,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dentes-plus2',
         'USER' : 'postgres',
-        'PASSWORD' : '7777', # runny: 20982270 , iddriss: 12345 
+        'PASSWORD' : '12345', # runny: 20982270 , iddriss: 12345 
         'HOST' : 'localhost',
-        'PORT' : '5433',
+        'PORT' : '5432',
     }
 }
 
@@ -140,3 +142,23 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 10
+}
+
+# details of email host
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'Dentes Plus'
+EMAIL_HOST_USER = 'iddrisscobar@gmail.com'
+EMAIL_HOST_PASSWORD = 'kmchellagyjyrmfa'
