@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, logout
 from rest_framework.decorators import authentication_classes,permission_classes,api_view
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import status,generics,mixins
 
 
 # Create your views here.
@@ -74,3 +75,15 @@ def logout(request):
     request.user.auth_token.delete()
 
     return Response({"message": "logout was successful"})
+
+
+# an API view to get all users
+class UserList(generics.ListCreateAPIView):
+    # permission_classes = [IsAuthenticated]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    # permission_classes = [IsAuthenticated]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
