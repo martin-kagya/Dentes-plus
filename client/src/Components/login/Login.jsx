@@ -33,9 +33,11 @@ export default function Login() {
       withCredentials: true,
     })
     .then((response) => {
-      const userDetails = response.data['user'];
-      login(userDetails.token);
+      //const userDetails = response.data['user'];
+      const token = response.data['token']
+      login(token);
       navigate(from, { replace: true });
+      console.log(response.data['token'])
     })
     .catch((error) => {
       console.error(error);
