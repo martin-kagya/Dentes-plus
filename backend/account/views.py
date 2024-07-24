@@ -14,6 +14,18 @@ from rest_framework import status,generics,mixins
 
 # Create your views here.
 
+# an API view get details of a particular user
+class UserDetail(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    def get(self, request):
+        user = request.user
+        user_data = {
+            'username': user.username,
+            'email': user.email
+        }
+        return Response(user_data, status=status.HTTP_200_OK)
+
 # an API view to signup a user
 class signup(APIView):
     def post(self, request):
@@ -76,14 +88,3 @@ def logout(request):
 
     return Response({"message": "logout was successful"})
 
-
-# an API view to get all users
-class UserList(generics.ListCreateAPIView):
-    # permission_classes = [IsAuthenticated]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
