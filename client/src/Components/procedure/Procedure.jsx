@@ -42,20 +42,20 @@ function Procedure() {
     return (
         <div className={visibleId ? styles.blurBackground : ''}>
             <section className={styles.container}>
-                <h3>LEARN MORE ABOUT THE PROCEDURES WE OFFER</h3>
+                <h3>LEARN MORE ABOUT PROCEDURES OFFERED</h3>
                 <ul>{list}</ul>
             </section>
             {visibleId && (
                 <div className={styles.modal}>
                     <div className={styles.modalContent}>
                         <h4>{listItem.find(item => item.id === visibleId).title}</h4>
+                        <button className={styles.closeButton} onClick={() => setVisibleId(null)}>&times;</button>
                         <p>{listItem.find(item => item.id === visibleId).about}</p>
                         <ul>
                             {listItem.find(item => item.id === visibleId).subservices.map(subservice => (
                                 <li key={subservice}>{subservice}</li>
                             ))}
                         </ul>
-                        <button className={styles.closeButton} onClick={() => setVisibleId(null)}>Close</button>
                     </div>
                 </div>
             )}

@@ -10,6 +10,19 @@
     display: flex;
     flex-direction: row;
 }
+.confirm{
+    font-family: var(--Ralewayfont);
+}
+
+.dialogue{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.text{
+    width: 70%;
+}
 .cartContainer{
     position: relative;
 }

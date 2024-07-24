@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import About from '../about/About'
 import { Link } from "react-router-dom";
 import { useRef } from "react";
+import Procedure from "../procedure/Procedure";
 import Button from '../button/Button'
 import Services from "../services/Services";
 
@@ -69,6 +70,7 @@ useEffect (() => {
             </div>
         </div>
             <About />
+            <Procedure />
             <Services />
         </>
     )

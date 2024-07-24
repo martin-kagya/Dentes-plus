@@ -4,7 +4,6 @@ import { Link as ScrollLink } from 'react-scroll';
 import { useAuth } from "../AuthProvider";
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
-
 const variants = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
@@ -32,7 +31,7 @@ const itemVariants = {
 };
 
 function Menu({ clicked }) {
-  const { user, logout } = useAuth();
+  const { user, logout, username } = useAuth();
 
   const items = [
     {
@@ -91,7 +90,7 @@ function Menu({ clicked }) {
             whileTap={{ scale: 0.95 }}
             onClick={logout}
           >
-            Logout
+            {console.log(username)}
           </motion.li>
         ) : (
           <motion.li
