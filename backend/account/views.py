@@ -95,7 +95,13 @@ class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+class UserDetail(APIView):
     permission_classes = [IsAuthenticated]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+    authentication_classes = [TokenAuthentication]
+    def get(self, request):
+        user = request.user
+        user_data = {
+            'username': user.username,
+            'email': user.email
+        }
+        return Response(user_data, status=status.HTTP_200_OK)
