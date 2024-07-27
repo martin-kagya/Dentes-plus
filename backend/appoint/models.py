@@ -8,6 +8,7 @@ class Appointment(models.Model):
     email = models.EmailField()
     date = models.DateField()
     reason = models.TextField()
+    time = models.TimeField(auto_now=True)
     accepted_appointment = models.BooleanField(default=False)
 
     def __str__(self):
