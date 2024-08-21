@@ -16,6 +16,6 @@ class ShopList(generics.ListCreateAPIView):
 
 # a concrete class to get, update or delete a shop
 class ShopDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated]
+    ##permission_classes = [IsAuthenticated]
     queryset = Shop.objects.all()
     serializer_class = ShopSerializer

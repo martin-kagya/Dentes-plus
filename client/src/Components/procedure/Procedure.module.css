@@ -1,35 +1,35 @@
 .container {
-    background-image: url("/images/kamal-hoseinianzade-s5TU52ZjaFA-unsplash.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    height: 90vmax;
-    color: white;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: black;
     display: flex;
-    width: 105%;
-    font-family: var(--Poppinsfont);
     flex-direction: column;
     align-items: center;
-    margin-top: 9rem;
+    font-family: var(--Poppinsfont);
+    box-sizing: border-box;
 }
-
 
 .procedureItem {
     list-style: none;
     margin-bottom: 1rem;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    
 }
-
 
 .procedureHeader {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
+    text-align: center;
 }
-
 
 .modal {
     position: fixed;
@@ -44,21 +44,25 @@
 }
 
 .modalContent {
+    font-family: var(--Poppinsfont);
     border-radius: 5%;
-    background: var(--gradient);
-    height: 30rem;
-    color: white;
+    background-color: #fff;
+    height: auto;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: black;
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    text-align: justify;
 }
 
 .closeButton {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
 }
