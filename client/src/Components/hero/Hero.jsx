@@ -8,7 +8,7 @@ import Procedure from "../procedure/Procedure";
 import Button from '../button/Button'
 import Services from "../services/Services";
 import { useAuth } from "../AuthProvider";
-
+import Footer from "../footer/Footer"
 
 function Hero(){
     const ref = useRef(null)
@@ -24,7 +24,7 @@ function Hero(){
         return () => {
           window.removeEventListener("scroll", handleScroll)
         }
-    }, [])
+    }, [username])
   const [clicked, setClicked] = useState(false)
   const [visible, setisVisible] = useState(false);
 
@@ -65,6 +65,7 @@ function handleScroll(){
             <About />
             <Procedure />
             <Services />
+            <Footer />
         </>
     )
 }

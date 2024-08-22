@@ -27,7 +27,7 @@ export default function Login() {
   function handleSubmit(e){
     e.preventDefault();
     axios.post("http://127.0.0.1:8000/account/login/", {
-      username: username,
+      username: username.toLowerCase(),
       password: password
     }, {
       withCredentials: true,
@@ -40,8 +40,7 @@ export default function Login() {
       console.log(response.data['token'])
     })
     .catch((error) => {
-      console.error(error);
-      setEmailError('Invalid credentials');
+      alert(error.response.data.message);
     });
   }
 
@@ -66,7 +65,6 @@ export default function Login() {
             onChange={handleEmailChange}
           />
           <label>USERNAME</label>
-          <p style={{color: 'red'}}>{emailError}</p>
         </div>
         <div className={styles.userBox}>
           <input
@@ -83,6 +81,7 @@ export default function Login() {
           </span>
         </div>
         <Button text="Login" />
+        <p className={styles.errorCode} style={{color: 'red'}}>{emailError}</p>
       </form>
     </div>
   );

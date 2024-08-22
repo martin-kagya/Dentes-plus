@@ -96,6 +96,7 @@ function Shop() {
     };
 
     const cleanCart = () => {
+        handleClose()
         setCartAdd(0)
         setAmount(0)
     }
@@ -127,9 +128,11 @@ function Shop() {
                         <>
                             <p className={styles.header}>DENTES+</p>
                             <div className={styles.cartContainer}>
+                            {amount > 0 && (
                                 <Button variant="outlined" onClick={handleClickOpen}>
                                     <HiOutlineShoppingBag size={25} className={styles.cartIcon} />
                                 </Button>
+                            )}
                                 <Dialog open={open} onClose={handleClose}>
                                     <form onSubmit={handleSubmit}>
                                         <DialogTitle>CHECKOUT</DialogTitle>
@@ -137,6 +140,7 @@ function Shop() {
                                             <DialogContentText>
                                                 Proceed to Checkout
                                             </DialogContentText>
+                                            <div className={styles.textField}>
                                             <TextField
                                                 autoFocus
                                                 required
@@ -186,10 +190,11 @@ function Shop() {
                                                 value={address}
                                                 onChange={(e) => setAddress(e.target.value)}
                                             />
+                                        </div>
                                         </DialogContent>
                                         <DialogActions>
-                                            <Button onClick={handleClose}>CANCEL</Button>
-                                            <PaystackButton {...componentProps} />
+                                            <Button onClick={cleanCart}>Clear</Button>
+                                            <PaystackButton {...componentProps} className={styles.PayButton}/>
                                         </DialogActions>
                                     </form>
                                 </Dialog>

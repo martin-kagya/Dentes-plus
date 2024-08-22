@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styles from './Menu.module.css';
 import { Link as ScrollLink, scroller } from 'react-scroll';
 import { useAuth } from "../AuthProvider";
@@ -34,6 +34,7 @@ const itemVariants = {
 function Menu({ clicked, closeMenu }) {
   const { user, logout, username } = useAuth();
   const firstLetter = username ? username['username'].charAt(0).toUpperCase() : '';
+  const [status, setStatus] = useState('')
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -64,7 +65,10 @@ function Menu({ clicked, closeMenu }) {
       id: 5,
     },
   ];
-
+  useEffect(() => {
+    user?.isAuthenticated ? setStatus(username) : setStatus("Login")
+    console.log(status)
+  }, [username])
   const handleClick = (item) => {
     closeMenu();
     if (location.pathname === '/' && item.location !== '/') {
@@ -120,7 +124,7 @@ function Menu({ clicked, closeMenu }) {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link to="/login" onClick={closeMenu}>Login</Link>
+            <Link to="/login" onClick={closeMenu} className={styles.login}>{status}</Link>
           </motion.li>
         )}
       </motion.ul>

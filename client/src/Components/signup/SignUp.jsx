@@ -30,7 +30,7 @@ export default function SignUp() {
     e.preventDefault();
     axios.post("http://127.0.0.1:8000/account/signup/", {
       email: email,
-      username: username,
+      username: username.toLowerCase(),
       password: password
     },
   {
@@ -40,7 +40,10 @@ export default function SignUp() {
       navigate('/login')
     }
   )
-    .catch((error) => console.log(error))
+    .catch((error) => {
+      console.log(error.response?.data?.username[0] ?? 'An unexpected Problem happpened')
+      setEmailError(error.response?.data?.username[0] ?? 'An unexpected Problem happpened')
+    })
   }
 
   function togglePasswordVisibility() {
@@ -63,7 +66,6 @@ export default function SignUp() {
               value={email}
               onChange={handleEmailChange}
             /><label>EMAIL</label>
-            <p style={{color: 'red'}}>{emailError}</p>
         </div>
         <div className={styles.userBox}>
             <input
@@ -87,6 +89,7 @@ export default function SignUp() {
             {showPassword ? <PiEye /> : <PiEyeClosed />}
           </span>
         </div>
+        <p style={{color: 'red', fontFamily: 'cursive'}}>{emailError}</p>
         <Button text="Sign Up" />
       </form>
     </div>

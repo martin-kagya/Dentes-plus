@@ -16,6 +16,11 @@ form{
     justify-content: center;
     align-items: center;
 }
+
+.errorCode{
+    font-family: var(--Ralewayfont);
+    
+}
 .logo{
     margin-top: 90%;
     width: 65%;

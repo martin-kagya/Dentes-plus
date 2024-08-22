@@ -1,5 +1,7 @@
 .services{
-    display: grid; 
+    display: grid;
+    list-style: none;
+    text-decoration: none;
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
     padding: 0;
@@ -35,6 +37,7 @@ h2{
 }
 .polaroid{
     width: 100%;
+    text-decoration: none;
     height: 100%;
     border-radius: 5%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
