@@ -13,8 +13,10 @@ from .serializers import AppointmentSerializer,AcceptedAppointmentSerializer
 class AppointmentView(APIView):
     def post(self,request):
         data = request.data
+        data['accepted_appointment'] = True
         serializer = AppointmentSerializer(data=data)
         if serializer.is_valid():
+            
             serializer.save()
             email(serializer.data['email'],serializer.data['name'])
             return Response(serializer.data,status=status.HTTP_200_OK)
@@ -59,10 +61,7 @@ def confirmation_email(email,name):
 
 def email(email,name):
     subject = 'Welcome to Dentes Plus'
-    if Appointment.objects.filter(email=email).exists():
-        welcome_message = f"Welcome back {name}"
-    else:
-        welcome_message = f"Thank you {name} for booking an appointment with us"
+    welcome_message = f"{name}, your appointment has been accepted"
 
     variable = {
         # 'name' : 'Dentist App',
