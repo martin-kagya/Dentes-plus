@@ -12,6 +12,7 @@ import SignUp from './Components/signup/SignUp';
 import About from './Components/about/About';
 import PrivateRoutes from './Components/PrivateRoutes';
 import LoginHero from './Components/loggedInPages/LoginHero';
+import Gallery from './Components/gallery/Gallery';
 
 function App() {
   const [clicked, setClicked] = useState(false);
@@ -47,6 +48,7 @@ function App() {
           <Route path='/procedure' element={<Procedure />} />
           <Route path='/services' element={<Services />} />
           <Route path='/about' element={<About />} />
+          <Route path='/gallery' element={<Gallery />} />
           <Route element={<PrivateRoutes />}>
             <Route path='/appointment' element={<Appointment />} />
             <Route path='/shop' element={<Shop />} />

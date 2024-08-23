@@ -42,8 +42,8 @@ function Procedure() {
     return (
         <div className={visibleId ? styles.blurBackground : ''}>
             <section className={styles.container}>
-                <h3>LEARN MORE ABOUT PROCEDURES OFFERED</h3>
-                <ul>{list}</ul>
+                <h3 className={styles.procheader}>LEARN MORE ABOUT PROCEDURES OFFERED</h3>
+                <ul className={styles.itemList}>{list}</ul>
             </section>
             {visibleId && (
                 <div className={styles.modal}>

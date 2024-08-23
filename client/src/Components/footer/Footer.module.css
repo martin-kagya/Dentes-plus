@@ -1,0 +1,40 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footerStyle {
+    margin: 5px 0;
+}
+
+.name a {
+    color: #333;
+    text-decoration: none;
+    font-family: var(--Poppinsfont);
+}
+
+.copyright {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.copyright p {
+    font-family: var(--Ralewayfont);
+    margin: 0;
+    color: #555;
+}

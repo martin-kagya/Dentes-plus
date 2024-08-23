@@ -9,13 +9,17 @@ import Button from '../button/Button'
 import Services from "../services/Services";
 import { useAuth } from "../AuthProvider";
 import Footer from "../footer/Footer"
+import Testimonial from "../testimonial/Testimonial";
+import Gallery from "../gallery/Gallery";
 
 function Hero(){
     const ref = useRef(null)
     const {username, user} = useAuth()
+    const [enable, setEnable] = useState(true)
     useEffect(() =>{
         const span = ref.current
         span.classList.add("hidden")
+        setEnable(!user?.isAuthenticated)
         if(window.innerWidth > 768){
           document.querySelector('.nav').style.display = 'none'
           setClicked(true)
@@ -64,8 +68,12 @@ function handleScroll(){
         </div>
             <About />
             <Procedure />
+            <Gallery />
             <Services />
-            <Footer />
+            <Testimonial />
+        <footer>
+          <Footer />
+        </footer>
         </>
     )
 }

@@ -19,28 +19,23 @@ function Services() {
             }
         })
     }
-    const services = [{
+    const services = [
+    {
         id: 1,
-        name: 'EXTRACTION',
-        img: '/images/caroline-lm-8BkF0sTC6Uo-unsplash.jpg',
-        location: 'login'
-    },
-    {
-        id: 2,
-        name: 'IMPLANTS',
-        img: '/images/nhia-moua-jQYofLnS0TI-unsplash.jpg',
-        location: 'login'
-    },
-    {
-        id: 3,
         name: 'SHOP WITH US',
         img: '/images/candid-WFsNCIn8OF4-unsplash.jpg',
         location: 'shop'
     
     },
     {
-        id: 4,
-        name: 'Book Appointment',
+        id: 2,
+        name: 'DENTAL BLOG',
+        img: '/images/daniel-frank-wKbWAMlHgNo-unsplash.jpg',
+        location: 'https://askthedentist.com/blog/'
+    },
+    {
+        id: 3,
+        name: 'BOOK APPOINTMENTS',
         img: '/images/shedrack-salami-GKMQtxRe_Kg-unsplash.jpg',
         location: 'appointment'
     }

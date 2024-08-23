@@ -37,6 +37,7 @@ export default function Login() {
       const token = response.data['token']
       login(token);
       navigate(from, { replace: true });
+      window.location.reload()
       console.log(response.data['token'])
     })
     .catch((error) => {
